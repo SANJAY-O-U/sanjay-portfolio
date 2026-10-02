@@ -21,10 +21,12 @@ import {
   process,
   processExamples,
   site,
+  surfaces,
 } from '../data/site'
 import { skills } from '../data/skills'
 import { ActionLink, Magnetic, Reveal, SectionHeading, useCycle } from './ui'
 import { GitHubIcon, LinkedInIcon } from './icons'
+import Portrait from './Portrait'
 
 /* ---------- How I build ---------- */
 export function HowIBuild() {
@@ -85,30 +87,56 @@ export function HowIBuild() {
 export function About() {
   return (
     <section id="about" aria-labelledby="about-title" className="shell py-20 sm:py-28">
-      <div className="grid gap-12 lg:grid-cols-12">
-        <Reveal className="lg:col-span-6">
-          <p className="eyebrow mb-4 flex items-center gap-3">
+      <div className="grid gap-x-10 gap-y-8 md:grid-cols-12 lg:gap-x-16">
+        <Reveal className="md:col-span-7 md:col-start-6 md:row-start-1">
+          <p className="eyebrow flex items-center gap-3">
             <span className="h-px w-8 bg-accent/60" />
             About
           </p>
-          <h2 id="about-title" className="display text-[clamp(2.3rem,6.4vw,5rem)]">
-            Engineering is how I think.
-          </h2>
         </Reveal>
-        <Reveal delay={0.1} className="space-y-5 text-lg leading-relaxed text-mute lg:col-span-6 lg:pt-3">
-          <p className="text-ink/90">
-            I&apos;m a Computer Engineering student focused on building software that connects engineering with
-            real-world problems.
-          </p>
-          <p>
-            I build across the stack — from interfaces and mobile apps to APIs, databases, geospatial systems and
-            data-driven applications.
-          </p>
-          <p>
-            I enjoy taking a problem from an ambiguous requirement to a working system — designing the architecture,
-            implementing the backend, building the interface, testing the workflows and iterating from there.
-          </p>
+
+        <Reveal delay={0.05} className="md:col-span-5 md:row-span-2 md:row-start-1 md:self-start">
+          <Portrait />
         </Reveal>
+
+        <div className="md:col-span-7 md:col-start-6 md:row-start-2">
+          <Reveal delay={0.1}>
+            <h2 id="about-title" className="display text-[clamp(2.3rem,6.4vw,4.5rem)]">
+              Engineering is <br className="hidden sm:block" />
+              how I think.
+            </h2>
+          </Reveal>
+          <Reveal delay={0.15} className="mt-8 space-y-5 text-lg leading-relaxed text-mute">
+            <p className="text-ink/90">
+              I&apos;m a Computer Engineering student focused on building software that connects engineering with
+              real-world problems.
+            </p>
+            <p>
+              My work spans full-stack web applications, mobile products, backend systems, AI integrations, geospatial
+              applications and data-driven platforms.
+            </p>
+            <p>
+              I enjoy taking a problem from an ambiguous requirement to a working system — understanding the
+              architecture, building the backend, shaping the interface, validating the workflows and iterating from
+              there.
+            </p>
+          </Reveal>
+          <Reveal delay={0.2} className="mt-8">
+            <ul className="flex flex-wrap gap-2" aria-label="Areas of work">
+              {surfaces.map((t) => (
+                <li
+                  key={t.key}
+                  className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.14em] text-mute"
+                >
+                  {t.label}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 border-l border-accent/50 pl-4 text-sm leading-relaxed text-mute">
+              Currently building systems across logistics, agriculture and real-world operational workflows.
+            </p>
+          </Reveal>
+        </div>
       </div>
 
       <Reveal className="mt-20" y={14}>
