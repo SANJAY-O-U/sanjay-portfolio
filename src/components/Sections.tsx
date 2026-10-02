@@ -261,7 +261,7 @@ export function Skills() {
 
 /* ---------- Contact ---------- */
 export function Contact() {
-  const email = site.email ? `mailto:${site.email}` : undefined
+  const email = site.email ? `https://mail.google.com/mail/?view=cm&fs=1&to=${site.email}` : undefined
   return (
     <section id="contact" aria-labelledby="contact-title" className="relative overflow-hidden border-t border-white/[0.07] py-28 sm:py-40">
       <div aria-hidden="true" className="grid-bg pointer-events-none absolute inset-0 opacity-70" />
@@ -279,7 +279,7 @@ export function Contact() {
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
           <Magnetic>
-            <ActionLink href={email} variant="primary" missing="Email unavailable" external={false}>
+            <ActionLink href={email} variant="primary" missing="Email unavailable" ariaLabel="Email Sanjay O. Upadhyay">
               Email Me <ArrowUpRight size={16} />
             </ActionLink>
           </Magnetic>
